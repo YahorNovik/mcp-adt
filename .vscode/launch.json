@@ -1,0 +1,138 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Debug MCP Server (HTTP)",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "${workspaceFolder}/mcp_server.py",
+            "args": [
+                "--transport", "http",
+                "--env", ".env"
+            ],
+            "console": "integratedTerminal",
+            "cwd": "${workspaceFolder}",
+            "env": {
+                "PYTHONPATH": "${workspaceFolder}"
+            },
+            "justMyCode": false,
+            "stopOnEntry": false
+        },
+        {
+            "name": "Debug MCP Server (STDIO)",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "${workspaceFolder}/mcp_server.py",
+            "args": [
+                "--transport", "stdio",
+                "--env", ".env"
+            ],
+            "console": "integratedTerminal",
+            "cwd": "${workspaceFolder}",
+            "env": {
+                "PYTHONPATH": "${workspaceFolder}"
+            },
+            "justMyCode": false,
+            "stopOnEntry": false
+        },
+        {
+            "name": "Debug Fixed MCP Server",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "${workspaceFolder}/mcp_server_fixed.py",
+            "args": [
+                "--transport", "http",
+                "--env", ".env"
+            ],
+            "console": "integratedTerminal",
+            "cwd": "${workspaceFolder}",
+            "env": {
+                "PYTHONPATH": "${workspaceFolder}"
+            },
+            "justMyCode": false,
+            "stopOnEntry": false
+        },
+        {
+            "name": "Debug Minimal MCP Server",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "${workspaceFolder}/mcp_server_minimal.py",
+            "args": [
+                "--transport", "http",
+                "--env", ".env"
+            ],
+            "console": "integratedTerminal",
+            "cwd": "${workspaceFolder}",
+            "env": {
+                "PYTHONPATH": "${workspaceFolder}"
+            },
+            "justMyCode": false,
+            "stopOnEntry": false
+        },
+        {
+            "name": "Run Server Tests",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "${workspaceFolder}/test/test_mcp_client.py",
+            "console": "integratedTerminal",
+            "cwd": "${workspaceFolder}",
+            "env": {
+                "PYTHONPATH": "${workspaceFolder}"
+            },
+            "justMyCode": false
+        },
+        {
+            "name": "Debug with E19 Environment",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "${workspaceFolder}/mcp_server.py",
+            "args": [
+                "--transport", "http",
+                "--env", "e19.env"
+            ],
+            "console": "integratedTerminal",
+            "cwd": "${workspaceFolder}",
+            "env": {
+                "PYTHONPATH": "${workspaceFolder}"
+            },
+            "justMyCode": false,
+            "stopOnEntry": false
+        },
+        {
+            "name": "Debug with BTP Environment",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "${workspaceFolder}/mcp_server.py",
+            "args": [
+                "--transport", "http",
+                "--env", "btp_02.env"
+            ],
+            "console": "integratedTerminal",
+            "cwd": "${workspaceFolder}",
+            "env": {
+                "PYTHONPATH": "${workspaceFolder}"
+            },
+            "justMyCode": false,
+            "stopOnEntry": false
+        },
+        {
+            "name": "Debug Server with Breakpoints",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "${workspaceFolder}/mcp_server.py",
+            "args": [
+                "--transport", "http",
+                "--env", ".env"
+            ],
+            "console": "integratedTerminal",
+            "cwd": "${workspaceFolder}",
+            "env": {
+                "PYTHONPATH": "${workspaceFolder}",
+                "PYTHONUNBUFFERED": "1"
+            },
+            "justMyCode": false,
+            "stopOnEntry": true,
+            "logToFile": true
+        }
+    ]
+}

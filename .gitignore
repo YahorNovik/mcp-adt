@@ -1,2 +1,15 @@
 /dotenv/
 /.env
+.venv/
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.db
+*.sqlite3
+*.log
+*.egg-info/
+*.egg
+*.zip
+*.env
+sk.json
