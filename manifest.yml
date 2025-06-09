@@ -1,0 +1,11 @@
+applications:
+- name: adt-mcp-server
+  memory: 512MB
+  disk_quota: 5GB
+  random-route: false
+  buildpack: python_buildpack
+  env:
+    MODE: 'DEV'
+  services:
+    - pyuaa
+  command: python ./mcp_server.py
