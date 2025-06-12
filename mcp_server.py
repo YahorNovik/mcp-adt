@@ -5,6 +5,9 @@ import sys
 from pathlib import Path
 from mcp.server.fastmcp import FastMCP  # Import FastMCP, the quickstart server base
 
+destination_config = get_destination_config("S4HANA_E19")
+print(destination_config)
+
 # Add the project root to Python path to ensure imports work from any directory
 project_root = Path(__file__).parent.absolute()
 sys.path.insert(0, str(project_root))
