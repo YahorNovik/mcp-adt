@@ -1,4 +1,4 @@
-mcp-server
-python-dotenv
-requests
-xmltodict
+mcp-server==0.1.4    # replace with your installed version
+python-dotenv==1.1.0    # latest release as of Mar 25, 2025 :contentReference[oaicite:0]{index=0}
+requests==2.32.4 
+xmltodict==0.14.2 
