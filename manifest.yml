@@ -4,7 +4,7 @@ applications:
   disk_quota: 512MB
   random-route: true
   buildpack: python_buildpack
-  command: python ./mcp_server.py
+  command: python ./server.py
   env:
     MODE: 'DEV'
   services:
