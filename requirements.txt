@@ -8,4 +8,4 @@ requests==2.32.4            #
 xmltodict==0.14.2           # :contentReference[oaicite:2]{index=2}
 
 # MCP core + CLI extra
-git+https://github.com/jlowin/fastmcp.git@v2.8.0
+fastmcp @ git+https://github.com/jlowin/fastmcp.git@v2.8.0
