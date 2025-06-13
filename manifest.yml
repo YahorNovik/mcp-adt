@@ -2,7 +2,7 @@ applications:
 - name: adt-mcp-server
   memory: 256MB
   disk_quota: 512MB
-  random-route: false
+  random-route: true
   buildpack: python_buildpack
   env:
     MODE: 'DEV'
