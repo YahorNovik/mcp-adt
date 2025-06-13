@@ -8,4 +8,4 @@ requests==2.32.4            #
 xmltodict==0.14.2           # :contentReference[oaicite:2]{index=2}
 
 # MCP core + CLI extra
-mcp[cli]==1.9.4   
+mcp[cli]==2.8.0
