@@ -21,6 +21,8 @@ from src.tools.metadata_extension_source import get_metadata_extension_source
 from dotenv import load_dotenv
 
 mcp = FastMCP("ADT Server")  # Initialize an MCP server instance with a descriptive name
+from importlib.metadata import version
+print(version("fastmcp"))
 
 @mcp.tool()
 def get_function_group_source_mcp(function_group: str) -> list[str]:
