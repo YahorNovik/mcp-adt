@@ -111,4 +111,12 @@ def get_usage_references_mcp(object_type: str, object_name: str,function_group =
     return get_usage_references(object_type, object_name, function_group)
 
 if __name__ == "__main__":
-    mcp.run(transport="stdio")  
+    load_dotenv()      
+    import os
+
+    host = os.getenv("HOST") or "0.0.0.0"
+    port = os.getenv("PORT") or "8080"
+    print("host:", host)
+    print("port:", port)
+
+    mcp.run(transport="http", host=host, port=port)
