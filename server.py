@@ -115,8 +115,8 @@ if __name__ == "__main__":
     import os
 
     host = os.getenv("HOST") or "0.0.0.0"
-    port = os.getenv("PORT") or "8080"
+    port = os.getenv("PORT") or 8080
     print("host:", host)
     print("port:", port)
 
-    mcp.run(transport="http", host=host, port=port)
+    mcp.run(transport="streamable-http", host=host, port=port)
