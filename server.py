@@ -1,4 +1,5 @@
 from mcp.server.fastmcp import FastMCP  # Import FastMCP, the quickstart server base
+import inspect
 
 from src.tools.function_group_source import get_function_group_source
 from src.tools.cds_source import get_cds_source
@@ -115,6 +116,9 @@ def get_usage_references_mcp(object_type: str, object_name: str,function_group =
 if __name__ == "__main__":
     load_dotenv()      
     import os
+    print(mcp)
+    print(type(mcp))
+    print(inspect.getfile(mcp.run))
 
     host = os.getenv("HOST") or "0.0.0.0"
     port = os.getenv("PORT") or 8080
