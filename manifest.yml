@@ -4,8 +4,8 @@ applications:
   disk_quota: 512MB
   random-route: true
   buildpack: python_buildpack
+  command: python ./mcp_server.py
   env:
     MODE: 'DEV'
   services:
     - s4hana_e19_destination
-  command: python ./mcp_server.py
