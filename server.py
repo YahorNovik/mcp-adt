@@ -1,4 +1,4 @@
-from mcp.server.fastmcp import FastMCP  # Import FastMCP, the quickstart server base
+from fastmcp import FastMCP  # Import FastMCP, the quickstart server base
 import inspect
 
 from src.tools.function_group_source import get_function_group_source
