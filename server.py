@@ -1,22 +1,22 @@
 from mcp.server.fastmcp import FastMCP  # Import FastMCP, the quickstart server base
 
-from tools.function_group_source import get_function_group_source
-from tools.cds_source import get_cds_source
-from tools.class_source import get_class_source
-from tools.behavior_definition_source import get_behavior_definition_source
-from tools.function_source import get_function_source
-from tools.include_source import get_include_source
-from tools.interface_source import  get_interface_source
-from tools.package_structure import  get_package_structure
-from tools.program_source import get_program_source
-from tools.structure_source import get_structure_source
-from tools.table_source import get_table_source
-from tools.transaction_properties import get_transaction_properties
-from tools.type_info import get_type_info
-from tools.search_objects import get_search_objects
-from tools.usage_references import get_usage_references
-from tools.cds_source import get_cds_source
-from tools.metadata_extension_source import get_metadata_extension_source
+from src.tools.function_group_source import get_function_group_source
+from src.tools.cds_source import get_cds_source
+from src.tools.class_source import get_class_source
+from src.tools.behavior_definition_source import get_behavior_definition_source
+from src.tools.function_source import get_function_source
+from src.tools.include_source import get_include_source
+from src.tools.interface_source import  get_interface_source
+from src.tools.package_structure import  get_package_structure
+from src.tools.program_source import get_program_source
+from src.tools.structure_source import get_structure_source
+from src.tools.table_source import get_table_source
+from src.tools.transaction_properties import get_transaction_properties
+from src.tools.type_info import get_type_info
+from src.tools.search_objects import get_search_objects
+from src.tools.usage_references import get_usage_references
+from src.tools.cds_source import get_cds_source
+from src.tools.metadata_extension_source import get_metadata_extension_source
 
 from dotenv import load_dotenv
 
