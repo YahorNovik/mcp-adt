@@ -1,5 +1,4 @@
 from fastmcp import FastMCP  # Import FastMCP, the quickstart server base
-import inspect
 
 from src.tools.function_group_source import get_function_group_source
 from src.tools.cds_source import get_cds_source
@@ -21,9 +20,8 @@ from src.tools.metadata_extension_source import get_metadata_extension_source
 
 from dotenv import load_dotenv
 
-mcp = FastMCP("ADT Server")  # Initialize an MCP server instance with a descriptive name
-from importlib.metadata import version
-print(version("fastmcp"))
+# mcp = FastMCP("ADT Server")  # Initialize an MCP server instance with a descriptive name
+mcp = FastMCP("ADT Server", stateless_http=True)  # Initialize an MCP server instance with a descriptive name
 
 @mcp.tool()
 def get_function_group_source_mcp(function_group: str) -> list[str]:
@@ -113,16 +111,51 @@ def get_usage_references_mcp(object_type: str, object_name: str,function_group =
        Required: [ "object_type", "object_name" ]"""
     return get_usage_references(object_type, object_name, function_group)
 
+# Middleware auth
+from tools.authorization import Authorization
+from starlette.middleware import Middleware
+from starlette.middleware.base import BaseHTTPMiddleware
+from starlette.requests import Request
+from starlette.responses import JSONResponse
+
+class AuthMiddleware(BaseHTTPMiddleware):
+    async def dispatch(self, request: Request, call_next):
+        auth = Authorization(request)
+        if not auth.is_authorized():
+            return JSONResponse({"detail": "Unauthorized"}, status_code=401)
+        return await call_next(request)
+
+middleware = [Middleware(AuthMiddleware)]
+http_app = mcp.http_app(middleware=middleware)
+
+# Connection ping route
+from src.tools import utils
+from starlette.responses import JSONResponse
+from starlette.requests import Request
+from starlette.routing import Route
+from requests.exceptions import RequestException
+
+async def s4hana_ping(request: Request):
+    try:
+        session = utils.make_session_with_timeout("csrf")
+        response = session.get(f"{utils.SAP_URL}/sap/bc/adt/ping", timeout=10)
+        response.raise_for_status()
+        return JSONResponse({"status": "OK", "code": response.status_code})
+    except RequestException as e:
+        return JSONResponse({"status": "ERROR", "message": str(e)}, status_code=500)
+
+http_app.router.routes.append(Route("/s4hana_ping", s4hana_ping, methods=["GET"]))
+
 if __name__ == "__main__":
     load_dotenv()      
+
     import os
-    print(mcp)
-    print(type(mcp))
-    print(inspect.getfile(mcp.run))
+    import uvicorn
 
     host = os.getenv("HOST") or "0.0.0.0"
     port = os.getenv("PORT") or 8080
     print("host:", host)
     print("port:", port)
 
-    mcp.run(transport="streamable-http", host=host, port=port)
+ #   mcp.run(transport="streamable-http", host=host, port=port)
+    uvicorn.run(http_app, host=host, port=port)
