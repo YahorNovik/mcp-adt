@@ -8,4 +8,6 @@ applications:
   env:
     MODE: 'DEV'
   services:
-    - s4hana_e19_destination
+    - adt-mcp-server-pyuaa
+    - adt-mcp-server-destination
+    - adt-mcp-server-connectivity
