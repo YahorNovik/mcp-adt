@@ -1,6 +1,7 @@
 import os
 from dotenv import load_dotenv
 from typing import Optional, Union
+from .destination import get_final_url
 
 load_dotenv()
 
