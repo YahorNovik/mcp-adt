@@ -65,6 +65,7 @@ def validate_configuration():
     print(f"[DEBUG] Configuration validated: auth_type={SAP_AUTH_TYPE}, verify_ssl={VERIFY_SSL}")
 
 def make_session(timeout_type: Union[str, int] = "default"):
+    get_final_url()
     """
     Creates and configures a requests.Session for ADT calls using global settings.
     Supports both basic authentication and JWT token authentication.
